@@ -1,5 +1,3 @@
-
-
 package com.example.quicknotes;
 
 import android.content.Intent;
@@ -12,12 +10,17 @@ public class SplashActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_splash);  // Ensure this layout exists
 
-        new Handler().postDelayed(() -> {
-            Intent intent = new Intent(SplashActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        }, 2000); // 2 seconds
+        // Delay for 2 seconds (2000 milliseconds)
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                // Start HomeActivity
+                Intent intent = new Intent(SplashActivity.this, HomeActivity.class);
+                startActivity(intent);
+                finish(); // Close SplashActivity
+            }
+        }, 2000); // 2000 milliseconds = 2 seconds
     }
 }
