@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -24,7 +25,7 @@ public class MainActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
 
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        noteAdapter = new NoteAdapter(new ArrayList<>(), db);
+        noteAdapter = new NoteAdapter(new ArrayList<>(), db);  // Pass an empty ArrayList and db
         recyclerView.setAdapter(noteAdapter);
 
         fab.setOnClickListener(view -> {
